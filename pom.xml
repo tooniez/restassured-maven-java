@@ -2,11 +2,55 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>app</groupId>
+  <groupId>weather</groupId>
   <artifactId>mav-rusty</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>mav-rusty</name>
   <url>http://maven.apache.org</url>
-  <description>This repository is to explore Rest Assured test framework</description>
+  <description>This repository is to scaffold a RestAssured framework with Openweather API</description>
 
+  <properties>
+    <restassured.version>5.3.2</restassured.version>
+    <junit.version>4.13.2</junit.version>
+    <dotenv.version>5.2.2</dotenv.version>
+    <maven.surefire.plugin.version>3.0.0</maven.surefire.plugin.version>
+  </properties>
+
+
+  <dependencies>
+
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${restassured.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>LATEST</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest</artifactId>
+      <version>LATEST</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.github.cdimascio</groupId>
+      <artifactId>java-dotenv</artifactId>
+      <version>${dotenv.version}</version>
+    </dependency>
+
+  </dependencies>
 </project>
