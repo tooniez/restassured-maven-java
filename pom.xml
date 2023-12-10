@@ -7,6 +7,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>mav-rusty</name>
   <url>http://maven.apache.org</url>
-  <description>This repository is to explore Rest Assured test framework</description>
+  <description>This repository is to scaffold a RestAssured framework with Openweather API</description>
 
 </project>
