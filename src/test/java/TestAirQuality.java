@@ -23,7 +23,7 @@ public class TestAirQuality extends BaseTest {
                     .when()
                     .get(Endpoints.getBaseUrl() + Endpoints.getWeatherEndpoint(city, API_KEY));
 
-            System.out.println(weatherResponse.getBody().asString());
+            // System.out.println(weatherResponse.getBody().asString());
             // Extract lat and lon for city
             JSONObject weatherData = new JSONObject(weatherResponse.getBody().asString());
             double lat = weatherData.getJSONObject("coord").getDouble("lat");
@@ -47,9 +47,9 @@ public class TestAirQuality extends BaseTest {
                     .assertThat()
                     .statusCode(STATUS_OK)
                     .body("list", hasSize(greaterThan(0)))
-                    .body("list[0].main", hasKey("aqi"))
-                    .log()
-                    .body();
+                    .body("list[0].main", hasKey("aqi"));
+                    // .log()
+                    // .body();
 
             // Save air pollution data
             Response airPollutionResponse = RestAssured.given()

@@ -24,9 +24,9 @@ public class TestLatLon extends BaseTest{
                 .assertThat()
                 .statusCode(STATUS_OK)
                 .body("coord", hasKey("lat"))
-                .body("coord", hasKey("lon"))
-                .log()
-                .body();
+                .body("coord", hasKey("lon"));
+                // .log()
+                // .body();
                 
 
         }
