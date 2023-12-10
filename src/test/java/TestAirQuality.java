@@ -54,7 +54,11 @@ public class TestAirQuality extends BaseTest {
                     .get(Endpoints.getBaseUrl() + Endpoints.getAirPollutionEndpoint(lat, lon, API_KEY));
 
             JSONArray airPollutionData = new JSONObject(airPollutionResponse.getBody().asString()).getJSONArray("list");
-            System.out.println(airPollutionData.toString());
+            // System.out.println(airPollutionData.toString());
+
+            // Store aqi value in a variable
+            int aqi = airPollutionData.getJSONObject(0).getJSONObject("main").getInt("aqi");
+            System.out.println("AQI for " + city + ": " + aqi);
         }
     }
 }
