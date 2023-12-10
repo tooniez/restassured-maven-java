@@ -9,6 +9,9 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 public class TestAirQuality extends BaseTest {
+
+    private static final int AQI_THRESHOLD = 2;
+
     @Test
     public void testAirQuality() {
 
@@ -59,6 +62,13 @@ public class TestAirQuality extends BaseTest {
             // Store aqi value in a variable
             int aqi = airPollutionData.getJSONObject(0).getJSONObject("main").getInt("aqi");
             System.out.println("AQI for " + city + ": " + aqi);
+
+            // Check if any of the air quality index (aqi) is 2 or above
+            if (aqi >= AQI_THRESHOLD) {
+                System.out.println("City with AQI 2 or above: " + city + ", AQI: " + aqi);
+            } else {
+                System.out.println("City with AQI below 2: " + city + ", AQI: " + aqi);
+            }
         }
     }
 }
