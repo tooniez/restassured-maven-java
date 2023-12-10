@@ -3,9 +3,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>weather</groupId>
-  <artifactId>mav-rusty</artifactId>
+  <artifactId>restassured-maven-java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>mav-rusty</name>
+  <name>restassured-maven-java</name>
   <url>http://maven.apache.org</url>
   <description>This repository is to scaffold a RestAssured framework with Openweather API</description>
 
