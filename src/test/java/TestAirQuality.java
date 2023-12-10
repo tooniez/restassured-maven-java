@@ -6,6 +6,8 @@ import org.junit.Test;
 import providers.CityProvider;
 import weather.Endpoints;
 import java.util.List;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.*;
 public class TestAirQuality extends BaseTest {
     @Test
     public void testAirQuality() {
@@ -31,6 +33,20 @@ public class TestAirQuality extends BaseTest {
             } else {
                 System.out.println("Coordinates for " + city + ": " + lat + ", " + lon);
             }
+
+            // Test for air pollution data
+                given()
+                    // .log()
+                    // .all()
+                    .when()
+                    .get(Endpoints.getBaseUrl() + Endpoints.getAirPollutionEndpoint(lat, lon, API_KEY))
+                    .then()
+                    .assertThat()
+                    .statusCode(STATUS_OK)
+                    .body("list", hasSize(greaterThan(0)))
+                    .body("list[0].main", hasKey("aqi"))
+                    .log()
+                    .body();
         }
     }
 }
