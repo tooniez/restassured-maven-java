@@ -1,4 +1,4 @@
-# Rest Assured exercise
+# RestAssured Maven Java Repo
 
 [![ci runs](https://github.com/tooniez/restassured-maven-java/actions/workflows/ci.yml/badge.svg)](https://github.com/tooniez/restassured-maven-java/actions/workflows/ci.yml)
 
