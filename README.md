@@ -1,6 +1,9 @@
 # Rest Assured exercise
 
-This is a Maven project that utilizes RestAssured and JUnit for testing and reporting.
+[![ci runs](https://github.com/tooniez/restassured-maven-java/actions/workflows/ci.yml/badge.svg)](https://github.com/tooniez/restassured-maven-java/actions/workflows/ci.yml)
+
+This is a Maven project that utilizes RestAssured and JUnit to evaluate how to achieve some tasks in `./.idea/notes.md` using test script `./src/test/java/TestAirQuality.java`
+
 
 ## Prerequisites
 
@@ -47,7 +50,7 @@ The `/src/test/java/weather/Endpoints.java` file contains 2 endpoints used in th
 
 ### Test config
 
-A `BaseTest` class is used to extend on all tests. Currently its configured to load api key stored in `.env` file using a `@BeforeClass` decorator from `JUnit`
+A `./src/test/java/BaseTest.java` class is used to extend on all tests. Currently its configured to load api key stored in `.env` file using a `@BeforeClass` decorator from `JUnit`
 
 ```
     protected static Dotenv dotenv;
@@ -56,4 +59,26 @@ A `BaseTest` class is used to extend on all tests. Currently its configured to l
 
 ### Test Cases
 
-The `TestLatlon.java` is a simple test script mainly used to explore openweather api and the shape of data it returns.
+The `./src/test/java/TestLatlon.java` is a simple test script mainly used to explore openweather api and the shape of data it returns.
+
+The `./src/test/java/TestAirQuality.java` contains flow where it:
+1. uses weatherEndpoint to get lat lon response is captured on each city
+2. uses airPollutionEndpoint to get air quality (agi) 
+3. checks to see if the captured agi is greater or equal to the threshold we check for (2)
+
+```shell
+[INFO] Running TestAirQuality
+Coordinates for Melbourne: 28.0836, -80.6081
+AQI for Melbourne: 2
+City with AQI 2 or above: Melbourne, AQI: 2
+Coordinates for Manchester: 53.4809, -2.2374
+AQI for Manchester: 2
+City with AQI 2 or above: Manchester, AQI: 2
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.133 s -- in TestAirQuality
+```
+
+### Test Reporting
+
+The project is currently configured to use junit with the `surefire` plugin to save the xml report. Reports are stored under `./reports`
+
+A CI workflow is also configured in this project for reporting/triggers
