@@ -2,7 +2,9 @@
 
 [![ci runs](https://github.com/tooniez/restassured-maven-java/actions/workflows/ci.yml/badge.svg)](https://github.com/tooniez/restassured-maven-java/actions/workflows/ci.yml)
 
-This is a Maven project that utilizes RestAssured and JUnit to evaluate how to achieve some tasks in `./.idea/notes.md` using test script `./src/test/java/TestAirQuality.java`
+This is a Maven project that utilizes RestAssured and JUnit to evaluate how to achieve some tasks in `./.idea/notes.md` 
+
+The final test script that demonstrates the tasks is in - `./src/test/java/TestAirQuality.java`
 
 
 ## Prerequisites
@@ -11,9 +13,6 @@ Before running this project, make sure you have the following installed:
 
 - Java Development Kit (JDK)
 - Apache Maven
-- JUnit
-- RestAssured
-- Hamcrest
 
 ## Installation
 
@@ -24,7 +23,7 @@ Before running this project, make sure you have the following installed:
 
 ## Data Providers
 
-The `/src/test/java/providers/CityProvider.java` returns a list of states used in this exercise.
+The `/src/test/java/providers/CityProvider.java` returns a list of cities used.
 
 ```java
     public static List<String> getCities() {
@@ -34,7 +33,7 @@ The `/src/test/java/providers/CityProvider.java` returns a list of states used i
 
 ## Endpoints
 
-The `/src/test/java/weather/Endpoints.java` file contains 2 endpoints used in this exercise. The `Endpoints` extends from `Base.java` where we store the base url domain and versioning.
+The `/src/test/java/weather/Endpoints.java` contains 2 endpoints used in this exercise. The `Endpoints` extends from `Base.java` where we store the base url domain and versioning.
 
 ```java
     public static String getWeatherEndpoint(String city, String apiKey) {
@@ -50,7 +49,7 @@ The `/src/test/java/weather/Endpoints.java` file contains 2 endpoints used in th
 
 ### Test config
 
-A `./src/test/java/BaseTest.java` class is used to extend on all tests. Currently its configured to load api key stored in `.env` file using a `@BeforeClass` decorator from `JUnit`
+A `./src/test/java/BaseTest.java` class should be used to extend on all tests. Currently its configured to load api_key stored in `.env` file using a `@BeforeClass` decorator.
 
 ```
     protected static Dotenv dotenv;
@@ -59,12 +58,12 @@ A `./src/test/java/BaseTest.java` class is used to extend on all tests. Currentl
 
 ### Test Cases
 
-The `./src/test/java/TestLatlon.java` is a simple test script mainly used to explore openweather api and the shape of data it returns.
+The `./src/test/java/TestLatlon.java` is a simple test script used to explore openweather api and see the shape of data it returns.
 
 The `./src/test/java/TestAirQuality.java` contains flow where it:
-1. uses weatherEndpoint to get lat lon response is captured on each city
-2. uses airPollutionEndpoint to get air quality (agi) 
-3. checks to see if the captured agi is greater or equal to the threshold we check for (2)
+1. Uses weatherEndpoint to get lat lon response for each city
+2. Uses airPollutionEndpoint to get air quality (agi) using lat lon
+3. Checks to see if the captured agi is greater or equal to the threshold we check for (2)
 
 ```shell
 [INFO] Running TestAirQuality
@@ -72,9 +71,9 @@ Coordinates for Melbourne: 28.0836, -80.6081
 AQI for Melbourne: 2
 City with AQI 2 or above: Melbourne, AQI: 2
 Coordinates for Manchester: 53.4809, -2.2374
-AQI for Manchester: 2
-City with AQI 2 or above: Manchester, AQI: 2
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.133 s -- in TestAirQuality
+AQI for Manchester: 1
+City with AQI below 2: Manchester, AQI: 1
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.494 s -- in TestAirQuality
 ```
 
 ### Test Reporting
