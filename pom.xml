@@ -53,4 +53,20 @@
     </dependency>
 
   </dependencies>
+  <build>
+    <plugins>
+
+      <!-- Junit Report -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.plugin.version}</version>
+        <configuration>
+          <reportsDirectory>./reports</reportsDirectory>
+          <reportFormat>xml</reportFormat>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
 </project>
