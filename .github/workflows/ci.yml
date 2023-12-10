@@ -20,6 +20,9 @@ jobs:
 
       - name: Set up Maven
         uses: actions/setup-java@v2
+        with:
+          distribution: 'ubuntu'
+          java-version: '11'
 
       - name: Run Maven Install
         run: make install
