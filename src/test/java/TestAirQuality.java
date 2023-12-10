@@ -24,6 +24,13 @@ public class TestAirQuality extends BaseTest {
             double lat = weatherData.getJSONObject("coord").getDouble("lat");
             double lon = weatherData.getJSONObject("coord").getDouble("lon");
 
+            // Check if status code is 200
+            if (weatherResponse.getStatusCode() != STATUS_OK) {
+                System.out.println("Error: " + weatherResponse.getStatusCode());
+                return;
+            } else {
+                System.out.println("Coordinates for " + city + ": " + lat + ", " + lon);
+            }
         }
     }
 }
