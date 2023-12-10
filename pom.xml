@@ -62,6 +62,8 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven.surefire.plugin.version}</version>
         <configuration>
+          <source>8</source>
+          <target>8</target>
           <reportsDirectory>./reports</reportsDirectory>
           <reportFormat>xml</reportFormat>
         </configuration>
