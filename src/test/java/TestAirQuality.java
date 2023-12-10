@@ -1,5 +1,11 @@
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.junit.Test;
 import providers.CityProvider;
 import weather.Endpoints;
+import java.util.List;
 public class TestAirQuality extends BaseTest {
     @Test
     public void testAirQuality() {
@@ -14,6 +20,10 @@ public class TestAirQuality extends BaseTest {
 
             System.out.println(weatherResponse.getBody().asString());
             // Extract lat and lon for city
+            JSONObject weatherData = new JSONObject(weatherResponse.getBody().asString());
+            double lat = weatherData.getJSONObject("coord").getDouble("lat");
+            double lon = weatherData.getJSONObject("coord").getDouble("lon");
+
         }
     }
 }
