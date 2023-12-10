@@ -23,3 +23,9 @@ jobs:
 
       - name: Run Maven Install
         run: make install
+
+      - name: Upload JUnit Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-report
+          path: reports
