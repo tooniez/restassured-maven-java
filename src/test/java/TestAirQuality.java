@@ -47,6 +47,14 @@ public class TestAirQuality extends BaseTest {
                     .body("list[0].main", hasKey("aqi"))
                     .log()
                     .body();
+
+            // Save air pollution data
+            Response airPollutionResponse = RestAssured.given()
+                    .when()
+                    .get(Endpoints.getBaseUrl() + Endpoints.getAirPollutionEndpoint(lat, lon, API_KEY));
+
+            JSONArray airPollutionData = new JSONObject(airPollutionResponse.getBody().asString()).getJSONArray("list");
+            System.out.println(airPollutionData.toString());
         }
     }
 }
