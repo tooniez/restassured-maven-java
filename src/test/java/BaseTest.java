@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 public class BaseTest {
     protected static Dotenv dotenv;
     protected static String API_KEY;
+    protected static final int STATUS_OK = 200;
 
     @BeforeClass
     public static void setup() {
