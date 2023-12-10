@@ -1,0 +1,19 @@
+# Maven target directory
+target/
+
+# Maven build files
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# Visual Studio Code files
+.vscode/
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
