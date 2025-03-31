@@ -15,7 +15,7 @@
     <restassured.version>5.5.1</restassured.version>
     <junit.version>4.13.2</junit.version>
     <dotenv.version>5.2.2</dotenv.version>
-    <maven.surefire.plugin.version>3.5.2</maven.surefire.plugin.version>
+    <maven.surefire.plugin.version>3.5.3</maven.surefire.plugin.version>
   </properties>
 
 
